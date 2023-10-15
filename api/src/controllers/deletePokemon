@@ -1,0 +1,31 @@
+const { Pokemon, Type, conn } = require("../DB_connection");
+
+const deletePokemon = async(req,res)=>{
+    try{
+    let {idPokemon} =req.params
+    idPokemon = Number(idPokemon)
+    const{pokemon_type} = conn.models
+    //Buscamos el registro
+    const pokemonToDelete = await Pokemon.findByPk(idPokemon);
+
+    if (!pokemonToDelete) {
+    return res.status(422).send({message:"Pokemon no encontrado"})
+}
+
+    // Elimina los tipos asociados 
+    await pokemon_type.destroy({
+    where: { PokemonId: idPokemon }, 
+});
+
+    // Elimina el registro 
+    await pokemonToDelete.destroy();
+
+    
+    return res.status(200).json({message: pokemonToDelete})
+    } catch(error){
+        res.status(404)
+        res.send({message: error.message}) 
+    }
+}
+
+module.exports ={deletePokemon};
