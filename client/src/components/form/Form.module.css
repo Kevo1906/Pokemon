@@ -1,0 +1,42 @@
+.container{
+  margin: 0;
+  padding: 0;
+  background: url(https://dthezntil550i.cloudfront.net/13/latest/131611011945454810000512756/1280_960/430feddc-dcca-4811-91b8-2f544d338569.png) no-repeat center center fixed;
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.img{
+  width: 250px;
+  margin-bottom: 0;
+  animation: flotar 3s ease-in-out;
+  animation-iteration-count: infinite;
+  cursor: pointer;
+}
+.login_button{
+  position: absolute;
+  font-size: 2rem;
+  padding: 5px 20px;
+  background-color: var(--color-primary);
+  top: 470px;
+  animation: flotar 3s ease-in-out;
+  animation-iteration-count: infinite;
+  border: none;
+  border-radius: 2rem;
+  cursor: pointer;
+}
+
+@keyframes flotar {
+  0% {
+   transform: translateY(-10px);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(-10px);
+  }
+ }

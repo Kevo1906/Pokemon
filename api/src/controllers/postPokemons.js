@@ -35,7 +35,7 @@ const postPokemons = async(req,res) =>{
       }
       
       if(pokemon.name.match(/[^a-zA-ZáéíóúÁÉÍÓÚ\s]/g)){
-        console.log(pokemon.name.match(/[^a-zA-ZáéíóúÁÉÍÓÚ\s]/g))
+        
         return res.status(422).send({message: "name: No esta permitido numeros ni caracteres diferentes a letras"})
       }
       // Validaciones STATS
@@ -74,10 +74,10 @@ const postPokemons = async(req,res) =>{
       // Si pasa todas las validaciones recien se crea el pokemon
       let [newPokemon, created] = await Pokemon.findOrCreate({where: {[Op.or]: [
         { id: pokemon.id },
-        { name: pokemon.name }
+        { name: pokemon.name.toLowerCase() }
       ]}, defaults: {
         id: pokemon.id,
-        name: pokemon.name,
+        name: pokemon.name.toLowerCase(),
         img_anime: pokemon.img_anime,
         img_game: pokemon.img_game,
         hp: pokemon.hp,
@@ -91,8 +91,10 @@ const postPokemons = async(req,res) =>{
         return res.status(400).send({message:"Pokemon ya existe"})
       }
       await newPokemon.addType(pokemon.types)
+      const newPokemonCreated = await Pokemon.findAll({where:{id:pokemon.id}, include:Type})
       res.status(200)
-      res.send({message: "Pokemon creado"})
+      res.json(newPokemonCreated)
+      console.log(newPokemonCreated)
       return res
     } catch(error){
       res.status(404)
