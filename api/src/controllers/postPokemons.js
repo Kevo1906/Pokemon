@@ -63,14 +63,14 @@ const postPokemons = async(req,res) =>{
       for(let type=0; type<AllTypes.length; type++){
         types[AllTypes[type].name] = AllTypes[type].id
       }
-      console.log(types)
+      
       for(let i =0;i<pokemon.types.length;i++){
         if(!Object.keys(types).includes(pokemon.types[i])){
           return res.status(422).send({message: `${pokemon.types[i]}: No existe ese tipo de pokemon`
         })
       }}
       pokemon.types = pokemon.types.map(element => types[element])
-      console.log(pokemon.types)
+      
       // Si pasa todas las validaciones recien se crea el pokemon
       let [newPokemon, created] = await Pokemon.findOrCreate({where: {[Op.or]: [
         { id: pokemon.id },
@@ -94,7 +94,7 @@ const postPokemons = async(req,res) =>{
       const newPokemonCreated = await Pokemon.findAll({where:{id:pokemon.id}, include:Type})
       res.status(200)
       res.json(newPokemonCreated)
-      console.log(newPokemonCreated)
+      
       return res
     } catch(error){
       res.status(404)

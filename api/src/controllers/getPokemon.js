@@ -7,7 +7,7 @@ const getPokemons = async(req,res) =>{
     const {name} = req.query
     if(name){
       const nameCleaned = name.replace(/[^a-zA-ZáéíóúÁÉÍÓÚ\s]/g, '').replace(" ", "").toLowerCase()
-      console.log(nameCleaned)
+      
       const pokemonsFound = await Pokemon.findAll({ where:
       {name:nameCleaned}, include:Type})
       if(!pokemonsFound.length){
