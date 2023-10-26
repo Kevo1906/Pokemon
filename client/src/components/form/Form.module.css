@@ -27,6 +27,7 @@
   border: none;
   border-radius: 2rem;
   cursor: pointer;
+  color: #fff;
 }
 
 @keyframes flotar {

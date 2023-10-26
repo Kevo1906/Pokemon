@@ -25,14 +25,16 @@
     font-size: 1.8rem;
     font-weight: 400;
     background-color: var(--color-contrast);
-    caret-color: #f7f7f8;
     color: var(--color-text);
     padding: 7px 10px;
     border: none;
     border-top-left-radius: 50px;
     border-bottom-left-radius: 50px;
-   
+    
     transition: all .2s ease;
+  }
+  .input::placeholder{
+    color: #fff;
   }
   
   .input:hover {

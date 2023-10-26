@@ -1,0 +1,13 @@
+.filterContainer{
+    margin-top: 50px;
+}
+
+select{
+    background-color: var(--color-contrast);
+    color: var(--color-text);
+    border: none;
+    font-size: 1.8rem;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 50px;
+}

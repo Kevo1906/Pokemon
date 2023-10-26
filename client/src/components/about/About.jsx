@@ -4,8 +4,6 @@ import html from "../../img/html.png"
 import javascript from "../../img/javascript.png"
 import react_img from "../../img/React.png"
 import express_img from "../../img/express.png"
-import python from "../../img/python.png"
-import django from "../../img/django.png"
 import css from "../../img/css.png"
 
 function About(props){

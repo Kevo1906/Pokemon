@@ -1,0 +1,119 @@
+.formContainer{
+    height: fit-content;
+    width: 450px;
+    background: url(https://i.pinimg.com/736x/57/23/62/572362a2e99b0389947814276735d870.jpg);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    top: 50px;
+    left: calc(50% - 225px);
+    align-items: center;
+    justify-content: center;
+
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 50px;
+    box-sizing: border-box;
+    padding: 20px 30px;
+
+}
+.title {
+    text-align: center;
+    margin: 10px 0 30px 0;
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: #CC6B3E;
+    font-family: 'MiFuente';
+}
+.form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 15px;
+    align-items: center;
+}
+.input {
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border: 1px solid #c0c0c0;
+    /* background-color: var(--color-primary); */
+    outline: 0 !important;
+    box-sizing: border-box;
+    padding: 5px 5px;
+    font-size: 1.6rem;
+    overflow: hidden;
+    text-align: center;
+  }
+  .input:hover {
+    border: 2px solid rgba(255, 255, 255, 0.16);
+  }
+  
+  .input:focus {
+    
+    border: 2px solid rgba(255, 255, 255, 0.16);
+  
+  }
+  .mainLabel{
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    padding: 5px 15px;
+    font-size: 1.6rem;
+    background-color: var(--color-bg);
+  }
+  .submitButton{
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--color-bg);
+    color: black;
+    font-size: 2rem;
+    border: none;
+    border-radius: 50px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-family: 'MiFuente';
+  }
+  .submitButton:hover{
+    background-color: var(--color-contrast)
+
+}
+
+.errors{
+    background-color: var(--color-contrast);
+    font-size: 1.2rem;
+    width: fit-content;
+    padding: 5px 20px;
+    border-radius: 20px;
+    color: #fff;
+}
+.typesLabel{
+    font-size: 1.6rem;
+}
+.typesLabel{
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    padding: 5px 10px;
+    font-size: 1.6rem;
+    background-color: var(--color-bg);
+    text-align: center;
+}
+.typesContainer{
+    display: flex;
+    align-items: center;
+    
+}
+.typeLabel{
+    font-size: 1.2rem;
+    padding: 5px 10px;
+    margin: 2px;
+    margin-bottom: 5px;
+    border-radius: 50px;
+    color: #3f5165;
+}
+
+.typesContainer div{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    
+}

@@ -22,7 +22,6 @@ function SearchBar() {
         window.alert("Ingrese el nombre de un pokemon")
       }
     } catch(error){
-      console.log(error.response.data)
       window.alert(error.response.data.message)
     }
     

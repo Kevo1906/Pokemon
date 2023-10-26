@@ -1,8 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
 import { filterByType, order, filterBySource, changePage} from "../../redux/actions";
-
 import { useState } from "react";
-
+import style from "./Filters.module.css"
 function Filters () {
   const dispatch = useDispatch();
   const [aux, setAux] = useState("A")
@@ -26,8 +25,8 @@ function Filters () {
     dispatch(order(aux));
   };
   return (
-    <div>
-      <select onChange={handleOrder}>
+    <div className={style.filterContainer}> 
+      <select onChange={handleOrder} >
         <option value="A">Ascendente</option>
         <option value="D">Descendente</option>
       </select>

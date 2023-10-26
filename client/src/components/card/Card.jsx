@@ -1,29 +1,10 @@
 import { Link } from "react-router-dom";
 import style from "./Card.module.css";
-// import { addFav, removeFav } from "../../redux/actions";
-import { connect } from "react-redux";
-import { useEffect, useState } from "react";
+import { typeColor } from "../../utils/typeColors"
+import { capitalize } from "../../utils/typeColors";
+
 
 function Card(props) {
-  // const [isFav, setIsFav] = useState(false);
-
-  // const handleFavorite = () => {
-  //   if (isFav) {
-  //     setIsFav(false);
-  //     props.removeFav(props.id);
-  //   } else {
-  //     setIsFav(true);
-
-  //     props.addFav(props);
-  //   }
-  // };
-  // useEffect(() => {
-  //   props.allCharecters.forEach((fav) => {
-  //     if (fav.id === props.id) {
-  //       setIsFav(true);
-  //     }
-  //   });
-  // }, [props.allCharecters]);
 
   return (
     <div className={style.card}>
@@ -36,14 +17,14 @@ function Card(props) {
           <div className={style.front_content}>
             <div className={style.description}>
               <div className={style.title}>
-                <Link to={`/detail/${props.id}`}>
-                  <h2 className={style.name}>{props.name}</h2>
+                <Link to={`/detail/${props.id}`} className={style.nameLink}>
+                  <h2 className={style.name}>{capitalize(props.name)}</h2>
                 </Link>
                 
               </div>
               <div className={style.card_footer}>
-                <h3 className={style.status}>{props.Types}</h3>
-                <h3 className={style.gender}>{props.hp}</h3>
+                {props.Types.map((type,index) =>(<span key={index} 
+                 style={{ backgroundColor: typeColor[type]}}>{type}</span>) )}
               </div>
             </div>
           </div>
@@ -53,21 +34,4 @@ function Card(props) {
   );
 }
 
-// const mapDispatchToProps = (dispatch) => {
-//   return {
-//     addFav: (character) => {
-//       dispatch(addFav(character));
-//     },
-//     removeFav: (id) => {
-//       dispatch(removeFav(id));
-//     },
-//   };
-// };
-
-const mapStateToProps = (state) => {
-  return {
-    allPokemons: state.allPokemons,
-  };
-};
-
-export default connect(mapStateToProps,null)(Card);
+export default Card
